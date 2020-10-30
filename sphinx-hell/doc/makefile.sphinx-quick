@@ -1,0 +1,12 @@
+hello:
+	echo check out this makefile
+	cat makefile.*
+run:
+	sphinx-quickstart
+
+web-server:
+	docker run --rm --name lcloud-web -p 8443:80 -v `pwd`/build/html:/usr/share/nginx/html:ro -d nginx
+
+kill-server:
+	docker kill lcloud-web
+
